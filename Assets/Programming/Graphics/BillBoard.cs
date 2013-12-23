@@ -19,7 +19,7 @@ public class BillBoard : MonoBehaviour
 	// After all actions the object takes, we face the billboard	
 	void LateUpdate ()
 	{
-		if (!RendererExtensions.IsVisibleFrom(renderer, referenceCamera))
+		if (renderer && !RendererExtensions.IsVisibleFrom(renderer, referenceCamera))
 				return;
 			if (Flip){
 			targetPos = transform.position + referenceCamera.transform.rotation * Vector3.back;
