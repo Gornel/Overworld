@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: f78c6f203b18d2049818b46dad8d8802
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: gornel_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 267
+        width: 108
+        height: 235
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_1
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 267
+        width: 110
+        height: 234
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_2
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 268
+        width: 106
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_3
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 266
+        width: 104
+        height: 236
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_4
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 268
+        width: 108
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_5
+      rect:
+        serializedVersion: 2
+        x: 1352
+        y: 268
+        width: 105
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_6
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 267
+        width: 106
+        height: 233
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_7
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 268
+        width: 110
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_8
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 268
+        width: 113
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_10
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 11
+        width: 104
+        height: 233
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 12
+        width: 114
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_11
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 12
+        width: 100
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_12
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 10
+        width: 83
+        height: 233
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_13
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 11
+        width: 86
+        height: 233
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_14
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 12
+        width: 99
+        height: 232
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_15
+      rect:
+        serializedVersion: 2
+        x: 1610
+        y: 11
+        width: 103
+        height: 234
+      alignment: 7
+      pivot: {x: .5, y: 0}
+    - name: gornel_16
+      rect:
+        serializedVersion: 2
+        x: 1860
+        y: 10
+        width: 118
+        height: 234
+      alignment: 7
+      pivot: {x: .5, y: 0}
+  spritePackingTag: gornel
+  userData: 
