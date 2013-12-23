@@ -3,7 +3,7 @@
 ## Software
 Development is currently using the following software:
 
-*	GIMP 2.0
+*	GIMP 2.8
 *	LibreOffice
 *	Blender
 *	Audacity
