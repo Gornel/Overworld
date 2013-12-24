@@ -12,3 +12,5 @@ Development is currently using the following software:
 *	Photoshop CS6
 
 Do not use additional software to create or modify any assets or files contained in this repository.
+
+Hi Gornel
