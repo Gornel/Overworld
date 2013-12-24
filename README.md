@@ -9,5 +9,6 @@ Development is currently using the following software:
 *	Audacity
 *	Unity3D
 *	MonoDevelop
+*	Photoshop CS6
 
 Do not use additional software to create or modify any assets or files contained in this repository.
