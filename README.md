@@ -15,4 +15,4 @@ Do not use additional software to create or modify any assets or files contained
 
 ## Design Notes
 
-Place design documents and notes in the [Wiki](./wiki)
+Place design documents and notes in the [Wiki](https://github.com/Gornel/Overworld/wiki)
