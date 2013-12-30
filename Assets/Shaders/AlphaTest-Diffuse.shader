@@ -1,18 +1,16 @@
-Shader "Transparent/Sprite" {
+Shader "Transparent/DiffuseShadow" {
 Properties {
 	_Color ("Main Color", Color) = (1,1,1,1)
 	_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
-	_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
+	_Cutoff("Shadow alpha cutoff", Range(0,1)) = 0.5
 }
 
 SubShader {
-	Tags {"Queue"="AlphaTest" "IgnoreProjector"="True" "RenderType"="TransparentCutout"}
-	Cull Off
+	Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
 	LOD 200
-	
-	
+
 CGPROGRAM
-#pragma surface surf Lambert alphatest:_Cutoff
+#pragma surface surf Lambert alpha addshadow
 
 sampler2D _MainTex;
 fixed4 _Color;
