@@ -65,7 +65,7 @@ public class WeaponController : MonoBehaviour {
 		{
 			StartCoroutine("Attack");
 		}
-		if (hand == Hand.LeftHand){
+		/*if (hand == Hand.LeftHand){
 			if (!canAttack && motor.grounded)
 			{
 				motor.movement.maxForwardSpeed = 1;
@@ -76,7 +76,7 @@ public class WeaponController : MonoBehaviour {
 				motor.movement.maxBackwardsSpeed = 8;
 				motor.movement.maxSidewaysSpeed = 8;
 			}
-		}
+		}*/
 	}
 	
 	IEnumerator Attack ()
