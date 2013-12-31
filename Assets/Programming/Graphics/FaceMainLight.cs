@@ -7,29 +7,46 @@ using System.Collections;
  * directional light in the scene.
  */
 public class FaceMainLight : MonoBehaviour {
-	public bool LockY = true;
-	public bool Rotate90 = true;
-	public bool Flip = false;
-	
+	public GameObject SpriteBoard;
 	private GameObject mainLight;
+	private bool instancedMaterial = false;
 	private Vector3 targetPos;
 
 	// Use this for initialization
 	void OnValidate ()
 	{
+		if (SpriteBoard == null)
+			return;
+
 		mainLight = GameObject.FindGameObjectWithTag("MainLight");
-		if (Flip){
+		BillBoard bb = SpriteBoard.GetComponent<BillBoard>();
+		MeshRenderer spritemesh = SpriteBoard.GetComponent<MeshRenderer>();
+		MeshRenderer thismesh = GetComponent<MeshRenderer>();
+
+		if (spritemesh.sharedMaterial == null)
+			return;
+
+		Material mat = thismesh.sharedMaterial;
+		if (!instancedMaterial)
+		{
+			mat = new Material(thismesh.sharedMaterial);
+			instancedMaterial = true;
+		}
+		thismesh.sharedMaterial = mat;
+		mat.mainTexture = spritemesh.sharedMaterial.mainTexture;
+
+		if (!bb.Flip){
 			targetPos = transform.position + mainLight.transform.rotation * Vector3.back;
 		} else {
 			targetPos = transform.position + mainLight.transform.rotation * Vector3.forward;
 		}
 		
 		// Ignore camera Y position to stay upright
-		if (LockY)
+		if (bb.LockY)
 			targetPos.y = transform.position.y;
 		
 		transform.LookAt(targetPos);	// Inefficient, slowdowns with massive billboards
-		if(Rotate90){
+		if(bb.Rotate90){
 			transform.Rotate (Vector3.left, 90F);
 		}
 
