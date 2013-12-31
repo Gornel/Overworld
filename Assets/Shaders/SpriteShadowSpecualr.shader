@@ -6,7 +6,7 @@
 		_Color ("Tint", Color) = (1,1,1,1)
 		_SpecColor ("Specular Color", Color) = (0.5, 0.5, 0.5, 1)
 		_Shininess ("Shininess", Range (0.01, 1)) = 0.078125
-		_Cutoff("Shadow alpha cutoff", Range(0,1)) = 0.5
+		_Cutoff("Alpha cutoff", Range(0,1)) = 0.5
 		[MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
 	}
 
@@ -14,7 +14,7 @@
 	{
 		Tags
 		{ 
-			"Queue"="Transparent" 
+			"Queue"="AlphaTest" 
 			"IgnoreProjector"="True" 
 			"RenderType"="Transparent" 
 			"PreviewType"="Plane"
@@ -25,10 +25,10 @@
 		//Lighting Off
 		//ZWrite Off
 		//Fog { Mode Off }
-		Blend SrcAlpha OneMinusSrcAlpha
+		//Blend SrcAlpha OneMinusSrcAlpha
 
 		CGPROGRAM
-		#pragma surface surf BlinnPhong alpha addshadow vertex:vert
+		#pragma surface surf BlinnPhong alphatest:_Cutoff addshadow vertex:vert
 		#pragma multi_compile DUMMY PIXELSNAP_ON
 
 		sampler2D _MainTex;

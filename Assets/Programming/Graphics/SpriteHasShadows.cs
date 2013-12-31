@@ -7,7 +7,7 @@ public class SpriteHasShadows : MonoBehaviour {
 	void OnValidate () {
 		SpriteRenderer sprt = GetComponent<SpriteRenderer>();
 		sprt.castShadows = true;
-		sprt.receiveShadows = false;
+		sprt.receiveShadows = true;
 	}
 	
 	// Update is called once per frame
