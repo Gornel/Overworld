@@ -12,7 +12,7 @@
 	{
 		Tags
 		{ 
-			"Queue"="Transparent" 
+			"Queue"="AlphaTest" 
 			"IgnoreProjector"="True" 
 			"RenderType"="Transparent" 
 			"PreviewType"="Plane"
@@ -21,13 +21,13 @@
 		LOD 300
 
 		//Cull Off
-		Lighting Off
-		ZWrite Off
-		Fog { Mode Off }
-		Blend SrcAlpha OneMinusSrcAlpha
+		//Lighting Off
+		//ZWrite Off
+		//Fog { Mode Off }
+		//Blend SrcAlpha OneMinusSrcAlpha
 
 		CGPROGRAM
-		#pragma surface surf Lambert alpha addshadow vertex:vert
+		#pragma surface surf Lambert alphatest:_Cutoff addshadow vertex:vert
 		#pragma multi_compile DUMMY PIXELSNAP_ON
 
 		sampler2D _MainTex;

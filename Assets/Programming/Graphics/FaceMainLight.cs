@@ -7,10 +7,11 @@ using System.Collections;
  * directional light in the scene.
  */
 public class FaceMainLight : MonoBehaviour {
-	public GameObject SpriteBoard;
 	private GameObject mainLight;
-	private bool instancedMaterial = false;
 	private Vector3 targetPos;
+	private bool instancedMaterial = false;
+	public Texture2D tex;
+	public GameObject SpriteBoard;
 
 	// Use this for initialization
 	void OnValidate ()
@@ -20,10 +21,8 @@ public class FaceMainLight : MonoBehaviour {
 
 		mainLight = GameObject.FindGameObjectWithTag("MainLight");
 		BillBoard bb = SpriteBoard.GetComponent<BillBoard>();
-		MeshRenderer spritemesh = SpriteBoard.GetComponent<MeshRenderer>();
 		MeshRenderer thismesh = GetComponent<MeshRenderer>();
-
-		if (spritemesh.sharedMaterial == null)
+		if (thismesh.sharedMaterial == null)
 			return;
 
 		Material mat = thismesh.sharedMaterial;
@@ -33,7 +32,7 @@ public class FaceMainLight : MonoBehaviour {
 			instancedMaterial = true;
 		}
 		thismesh.sharedMaterial = mat;
-		mat.mainTexture = spritemesh.sharedMaterial.mainTexture;
+		mat.mainTexture = tex;
 
 		if (!bb.Flip){
 			targetPos = transform.position + mainLight.transform.rotation * Vector3.back;
