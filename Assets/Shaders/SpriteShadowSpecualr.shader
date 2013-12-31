@@ -21,10 +21,10 @@
 			"CanUseSpriteAtlas"="True"
 		}
 
-		Cull Off
-		Lighting Off
-		ZWrite Off
-		Fog { Mode Off }
+		//Cull Off
+		//Lighting Off
+		//ZWrite Off
+		//Fog { Mode Off }
 		Blend SrcAlpha OneMinusSrcAlpha
 
 		CGPROGRAM

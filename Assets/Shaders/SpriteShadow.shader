@@ -19,11 +19,11 @@
 			"CanUseSpriteAtlas"="True"
 		}
 
-		Cull Off
-		Lighting Off
-		ZWrite Off
-		Fog { Mode Off }
-		Blend SrcAlpha OneMinusSrcAlpha
+		//Cull Off
+		//Lighting Off
+		//ZWrite Off
+		//Fog { Mode Off }
+		//Blend SrcAlpha OneMinusSrcAlpha
 
 		CGPROGRAM
 		#pragma surface surf Lambert alpha addshadow vertex:vert
@@ -51,12 +51,12 @@
 
 		void surf (Input IN, inout SurfaceOutput o)
 		{
-			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * IN.color;
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
 		}
 		ENDCG
 	}
 
-Fallback "Transparent/Cutout/VertexLit"
+Fallback "Transparent/DiffuseShadow"
 }
