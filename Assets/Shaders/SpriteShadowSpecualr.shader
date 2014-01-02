@@ -21,7 +21,7 @@
 			"CanUseSpriteAtlas"="True"
 		}
 
-		//Cull Off
+		Cull Off
 		//Lighting Off
 		//ZWrite Off
 		//Fog { Mode Off }

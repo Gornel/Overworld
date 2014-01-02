@@ -65,7 +65,7 @@ public class ItemInteraction : MonoBehaviour {
 					{
 						GUI.Label(
 							new Rect (y * 80, x * 80, 80, 80),
-							Inventory.Bag[x,y].Graphic
+							Inventory.Bag[x,y].Graphic.texture
 							);
 					}
 				}

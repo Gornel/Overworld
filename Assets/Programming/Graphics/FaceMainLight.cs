@@ -9,8 +9,6 @@ using System.Collections;
 public class FaceMainLight : MonoBehaviour {
 	private GameObject mainLight;
 	private Vector3 targetPos;
-	private bool instancedMaterial = false;
-	public Texture2D tex;
 	public GameObject SpriteBoard;
 
 	// Use this for initialization
@@ -19,21 +17,13 @@ public class FaceMainLight : MonoBehaviour {
 		if (SpriteBoard == null)
 			return;
 
+		// Get the scene's directional light
 		mainLight = GameObject.FindGameObjectWithTag("MainLight");
+
+		// Get billboard properties
 		BillBoard bb = SpriteBoard.GetComponent<BillBoard>();
-		MeshRenderer thismesh = GetComponent<MeshRenderer>();
-		if (thismesh.sharedMaterial == null)
-			return;
 
-		Material mat = thismesh.sharedMaterial;
-		if (!instancedMaterial)
-		{
-			mat = new Material(thismesh.sharedMaterial);
-			instancedMaterial = true;
-		}
-		thismesh.sharedMaterial = mat;
-		mat.mainTexture = tex;
-
+		// Use billboard properties for shadow
 		if (!bb.Flip){
 			targetPos = transform.position + mainLight.transform.rotation * Vector3.back;
 		} else {

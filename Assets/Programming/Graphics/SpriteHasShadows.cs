@@ -2,16 +2,13 @@
 using System.Collections;
 
 public class SpriteHasShadows : MonoBehaviour {
-
+	private SpriteRenderer sprt;
 	// Use this for initialization
 	void OnValidate () {
-		SpriteRenderer sprt = GetComponent<SpriteRenderer>();
+		 sprt = GetComponent<SpriteRenderer>();
+		if (sprt == null)
+			return;
 		sprt.castShadows = true;
 		sprt.receiveShadows = true;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

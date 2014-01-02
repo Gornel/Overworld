@@ -14,7 +14,6 @@ public class Weapon : Item {
 		Weapon i = new Weapon();
 		i.itemID = ItemDatabase.GenerateID();
 		i.billboard = false;
-		i.Specular = true;
 		return i;
 	}
 	

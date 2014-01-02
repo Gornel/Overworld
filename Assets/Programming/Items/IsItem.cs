@@ -3,8 +3,7 @@ using System.Collections;
 
 public class IsItem : MonoBehaviour {
 	
-	public Item itemType;	
-	private bool instancedMat = false;
+	public Item itemType;
 	
 	public IsItem(Item item)
 	{
@@ -40,28 +39,15 @@ public class IsItem : MonoBehaviour {
 		}
 		
 		// Get the Renderer
-		MeshRenderer r = GetComponentInChildren<MeshRenderer>();
+		SpriteRenderer r = GetComponentInChildren<SpriteRenderer>();
 		if (itemType == null || r == null)
 			return;
-		Material mat = r.sharedMaterial;
-		// Insantiate new material
-		if(!instancedMat)
-		{
-			mat = new Material(r.sharedMaterial);
-			instancedMat = true;
-		}
-		mat.mainTexture = itemType.Graphic;
-		// Set specular or diffuse
-		if(itemType.Specular)
-		{
-			mat.shader = Shader.Find("Transparent/Cutout/Specular");
-		} else {
-			mat.shader = Shader.Find("Transparent/Cutout/Diffuse");
-		}		
-		r.sharedMaterial = mat;
+		r.sprite = itemType.Graphic;
+		// Set specular or diffuse	
+		r.sharedMaterial = itemType.SpriteMaterial;
 		
 		// Scale the sprite
-		this.transform.localScale = itemType.Scale;
+		r.gameObject.transform.localScale = itemType.Scale;
 		
 		// Handle billboarding
 		BillBoard bb = r.gameObject.GetComponent<BillBoard>();

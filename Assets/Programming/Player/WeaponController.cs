@@ -47,14 +47,7 @@ public class WeaponController : MonoBehaviour {
 			mat = new Material(r.sharedMaterial);
 			instancedMat = true;
 		}
-		mat.mainTexture = weapon.Graphic;
-		// Set specular or diffuse
-		if(weapon.Specular)
-		{
-			mat.shader = Shader.Find("Transparent/Cutout/Specular");
-		} else {
-			mat.shader = Shader.Find("Transparent/Cutout/Diffuse");
-		}		
+		mat.mainTexture = weapon.Graphic.texture;
 		r.sharedMaterial = mat;
 	}
 	
