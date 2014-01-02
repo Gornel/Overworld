@@ -7,6 +7,5 @@ public class UIStartNewGame : MonoBehaviour {
 	{
 
 		Application.LoadLevel("TestingGrounds");
-
 	}
 }
