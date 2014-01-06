@@ -4,7 +4,7 @@ using System.Collections;
 public class Inventory
 {
 	
-	public static Item[,] Bag = new Item[4,6];
+	public static Item[,] Bag = new Item[2,2];
 	
 	public static Item[] Hotbar = new Item [6];
 	

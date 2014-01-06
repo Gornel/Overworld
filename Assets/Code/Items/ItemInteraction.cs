@@ -8,7 +8,7 @@ public class ItemInteraction : MonoBehaviour {
 	private Vector3 tooltipPos;
 	private GameObject selected;
 	
-	private bool showInventory = false;
+	private bool showInventory = true;
 	
 	
 	// Use this for initialization
