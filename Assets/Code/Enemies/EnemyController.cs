@@ -58,8 +58,6 @@ public class EnemyController : MonoBehaviour {
 		if (targetDir.x < 0 && targetDir.z > 0)
 			degreeFacing += 360f;
 		
-
-		
 		// Return facing
 		if (degreeFacing > 315f && degreeFacing < 45f)
 			return Facing.Front;
