@@ -19,8 +19,8 @@ public class CameraBob : MonoBehaviour {
 			return;
 		
 		//Get input and clamp. This will keep diagonal input from being faster than straight input.
-		//float vertAxis = Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"));
-		float vertAxis = (Mathf.Abs(motor.movement.velocity.x) + Mathf.Abs(motor.movement.velocity.z)) / 8;
+		float vertAxis = Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"));
+		//float vertAxis = (Mathf.Abs(motor.movement.velocity.x) + Mathf.Abs(motor.movement.velocity.z)) / 8;
 		vertAxis = Mathf.Clamp01(vertAxis);
 		
 		//Distance to bob
