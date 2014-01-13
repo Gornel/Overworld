@@ -9,6 +9,8 @@ function Awake () {
 function Update () {
 	// Get the input vector from kayboard or analog stick
 	var directionVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+	// Get running key
+	var runKey :float = Input.GetAxis("Run");
 	
 	if (directionVector != Vector3.zero) {
 		// Get the length of the directon vector and then normalize it
@@ -30,6 +32,14 @@ function Update () {
 	// Apply the direction to the CharacterMotor
 	motor.inputMoveDirection = transform.rotation * directionVector;
 	motor.inputJump = Input.GetButton("Jump");
+	
+	if (runKey > 0)
+	{
+		motor.running = true;
+	} else {
+		motor.running = false;
+	}
+		
 }
 
 // Require a character controller to be attached to the same game object
