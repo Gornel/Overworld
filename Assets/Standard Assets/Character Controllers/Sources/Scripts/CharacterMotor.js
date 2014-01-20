@@ -24,6 +24,7 @@ class CharacterMotorMovement {
 	var maxForwardSpeed : float = 10.0;
 	var maxSidewaysSpeed : float = 10.0;
 	var maxBackwardsSpeed : float = 10.0;
+	var runMultiplier : float = 2.0;
 	
 	// Curve for multiplying speed based on slope (negative = downwards)
 	var slopeSpeedMultiplier : AnimationCurve = AnimationCurve(Keyframe(-90, 1), Keyframe(0, 1), Keyframe(90, 0));
@@ -165,6 +166,9 @@ var sliding : CharacterMotorSliding = CharacterMotorSliding();
 
 @System.NonSerialized
 var grounded : boolean = true;
+
+@System.NonSerialized
+var running : boolean;
 
 @System.NonSerialized
 var groundNormal : Vector3 = Vector3.zero;
@@ -367,6 +371,7 @@ private function ApplyInputVelocityChange (velocity : Vector3) {
 	
 	// Enforce max velocity change
 	var maxVelocityChange : float = GetMaxAcceleration(grounded) * Time.deltaTime;
+
 	var velocityChangeVector : Vector3 = (desiredVelocity - velocity);
 	if (velocityChangeVector.sqrMagnitude > maxVelocityChange * maxVelocityChange) {
 		velocityChangeVector = velocityChangeVector.normalized * maxVelocityChange;
@@ -382,7 +387,7 @@ private function ApplyInputVelocityChange (velocity : Vector3) {
 		// When going downhill, DO move down manually, as gravity is not enough on steep hills.
 		velocity.y = Mathf.Min(velocity.y, 0);
 	}
-	
+
 	return velocity;
 }
 
@@ -503,6 +508,10 @@ private function GetDesiredHorizontalVelocity () {
 	// Find desired velocity
 	var desiredLocalDirection : Vector3 = tr.InverseTransformDirection(inputMoveDirection);
 	var maxSpeed : float = MaxSpeedInDirection(desiredLocalDirection);
+	if (running)
+	{
+	maxSpeed *= movement.runMultiplier;
+	}
 	if (grounded) {
 		// Modify max speed on slopes based on slope speed multiplier curve
 		var movementSlopeAngle = Mathf.Asin(movement.velocity.normalized.y)  * Mathf.Rad2Deg;

@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour {
 	
 	public Vector3 Position;
 	private Vector3 screenPos;
+	public Font fnt;
 
 	// Use this for initialization
 	void Start ()
@@ -22,7 +23,8 @@ public class PlayerHealth : MonoBehaviour {
 	
 	void OnGUI ()
 	{
-		GUI.Label( new Rect(screenPos.x, screenPos.y, 100, 20), Health.ToString() );
+		GUI.skin.font = fnt;
+		GUI.Label( new Rect(screenPos.x, screenPos.y, 200, 100), Health.ToString() );
 	}
 	
 	void HurtPlayer (int dmg)

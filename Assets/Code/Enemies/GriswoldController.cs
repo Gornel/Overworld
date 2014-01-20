@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GriswoldController : EnemyController {
 
-	protected Animator animator;
 	public AudioClip attackSound;
 	public float turningDelay = 5f;
 	public float normalSpeed = 0.2f;
@@ -11,14 +10,12 @@ public class GriswoldController : EnemyController {
 	public float attackRange = 2f;
 	public int attackDamage = 1;
 	public float IQ = 5;
-	private float moveSpeed = 0;
-	private bool attacking = false;
-	private CharacterMotor motor;
-	private bool isClose = false;
-	protected bool facing_front = false;
-	protected bool facing_back = false;
-	protected bool facing_left = false;
-	protected bool facing_right = false;
+	protected float moveSpeed = 0;
+	protected bool attacking = false;
+	protected CharacterMotor motor;
+	protected bool isClose = false;
+	Animator animator;
+	AnimatorStateInfo currentState;
 	
 	void Awake ()
 	{
@@ -29,7 +26,7 @@ public class GriswoldController : EnemyController {
 	{
 		base.Start();
 		motor = GetComponent<CharacterMotor>();
-		animator = GetComponent<Animator>();
+		animator = GetComponentInChildren<Animator>();
 		StartCoroutine("AI");
 	}
 	
@@ -37,7 +34,6 @@ public class GriswoldController : EnemyController {
 	public override void Update ()
 	{
 		base.Update();
-		
 		//rotate sprite towards player
 		Vector3 vel = transform.rotation * Vector3.forward * moveSpeed;
 		motor.inputMoveDirection = vel;
@@ -48,7 +44,9 @@ public class GriswoldController : EnemyController {
 		} else {
 			isClose = false;
 		}
-		//decide what animation should be playing
+		//get current animation state
+		currentState = animator.GetCurrentAnimatorStateInfo(0);
+		//play the correct animation
 		HandleAnimation();
 		
 	}
@@ -57,15 +55,15 @@ public class GriswoldController : EnemyController {
 	{
 		while (true) 
 		{
-			/*while (isClose)
+			while (isClose)
 			{
-				//float attackTime = (AttackAnimation.hitFrame / AttackAnimation.GetFrames()) * AttackAnimation.GetTime();
+				float attackTime = .5f;//(AttackAnimation.hitFrame / AttackAnimation.GetFrames()) * AttackAnimation.GetTime();
 				Attack();
-				//yield return new WaitForSeconds(attackTime);
+				yield return new WaitForSeconds(attackTime);
 				DealDamage();
-				//yield return new WaitForSeconds(AttackAnimation.GetTime() - attackTime); // Cooldown to animation speed
+				yield return new WaitForSeconds(.5f);//(AttackAnimation.GetTime() - attackTime); // Cooldown to animation speed
 				yield return null;
-			}*/
+			}
 			attacking = false;
 			// If no target
 			if (Vector3.Distance(transform.position, player.transform.position) > aggroDistance)
@@ -125,7 +123,7 @@ public class GriswoldController : EnemyController {
 		Destroy(motor);
 		Destroy(collider);
 		Destroy (transform.Find("HitBox").gameObject);
-		animator.SetBool("death", true);
+		animator.CrossFade("death_gris", 0f);
 		this.enabled = false;
 	}
 	
@@ -133,21 +131,17 @@ public class GriswoldController : EnemyController {
 	{
 		if (attacking)
 		{
-			animator.SetBool("attack_forward", true);
+			animator.CrossFade("attack_gris", 0f);
 			return;
 		}
-		facing_front = false;
-		facing_back = false;
-		facing_left = false;
-		facing_right = false;
 
 		if (FaceDirection == Facing.Front)
-			animator.SetBool("facing_front", true);
+			animator.CrossFade("walkf_gris", 0f);
 		else if (FaceDirection == Facing.Back)
-			animator.SetBool("facing_back", true);
+			animator.CrossFade("walkb_gris", 0f);
 		else if (FaceDirection == Facing.Left)
-			animator.SetBool("facing_left", true);
+			animator.CrossFade("walkr_gris", 0f);
 		else if (FaceDirection == Facing.Right)
-			animator.SetBool("facing_right", true);
+			animator.CrossFade("walkl_gris", 0f);
 	}
 }
